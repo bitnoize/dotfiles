@@ -7,14 +7,15 @@ vim/bundle/*
 
 tmux/plugins/*
 !tmux/plugins/tpm
-tmux/resurrect/
+tmux/resurrect
 
 mcabber/mcabber.state
 mcabber/mcabber.log
 mcabber/logs/*
-!mcabber/logs
+!mcabber/logs/.gitkeep
 mcabber/otr/*
-!mcabber/otr
+!mcabber/otr/.gitkeep
 
-proxychains/proxychains.conf
+proxychains/*
 !proxychains/proxychains.conf.dist
+

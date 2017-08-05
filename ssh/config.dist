@@ -1,2 +1,5 @@
 # SSH client configuration
 
+HashKnownHosts no
+ForwardAgent yes
+
