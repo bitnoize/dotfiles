@@ -1,0 +1,13 @@
+out_to_console yes
+background no
+max_text_width 0
+total_run_times 0
+use_spacer left
+update_interval 1
+
+TEXT
+
+[
+  { "full_text" : "IP ${texeci  60 curl -x http://127.0.0.1:9080 -s myexternalip.com/raw}",  "color" : "\#FF99CC" }
+],
+

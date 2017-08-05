@@ -1,0 +1,153 @@
+# dotfiles/i3/config
+
+# modifier
+set $mod Mod4
+
+# font for window titles
+font -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
+
+#exec xli -quiet -fillscreen -onroot $HOME/images/trees.jpg
+exec xautolock -detectsleep
+
+# Manipulating layout
+#
+# layout mode for new containers (default|stacking|tabbed)
+workspace_layout tabbed
+
+# change container layout stacked / tabbed / default
+bindsym $mod+s layout stacking
+bindsym $mod+l layout toggle split
+bindsym $mod+w layout tabbed
+
+# Toggle between stacking/tabbed/split:
+bindsym $mod+x layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+t floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+t focus mode_toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# border style for new windows (normal|1pixel|none|pixel)
+new_window normal
+new_float normal
+
+# Focusing / Moving containers
+#
+# focus wrapping (yes|no)
+force_focus_wrapping yes
+
+# focus follows mouse (yes|no)
+focus_follows_mouse no
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# automatic back-and-forth when switching to the current workspace
+workspace_auto_back_and_forth no
+
+# use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Calculator
+bindsym $mod+Shift+g exec galculator
+
+# Electrum
+bindsym $mod+Shift+b exec electrum -w ~/.electrum/wallets/default
+bindsym $mod+Shift+l exec electrum-ltc -w ~/.electrum-ltc/wallets/default
+
+# Firefox
+bindsym $mod+Shift+f exec iceweasel -P -no-remote
+
+# PDF reader
+bindsym $mod+Shift+p exec epdfview
+
+# TOX messenger
+bindsym $mod+Shift+u exec utox &> /dev/null
+
+# kill focused window
+bindsym $mod+Shift+x kill
+
+# split in horizontal orientation
+bindsym $mod+h split s
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# switch to workspace
+bindsym $mod+1 workspace ONE
+bindsym $mod+2 workspace TWO
+bindsym $mod+3 workspace THR
+bindsym $mod+4 workspace FOR
+bindsym $mod+5 workspace FIV
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace ONE
+bindsym $mod+Shift+2 move container to workspace TWO
+bindsym $mod+Shift+3 move container to workspace THR
+bindsym $mod+Shift+4 move container to workspace FOR
+bindsym $mod+Shift+5 move container to workspace FIV
+
+# volume up / down / mute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# lock screen by Fn-F2
+bindsym XF86ScreenSaver exec i3lock -e -c 151515
+
+# ThinkVantage
+#bindsym XF86Launch1 exec xterm
+
+# restart / exit 
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+Q exit
+
+# arbitrary commands for specific windows
+# use xprop  | grep WM_CLASS to find a program class
+for_window [class="Gmrun"]      floating enable
+for_window [class="xli"]        floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Epdfview"]   floating enable
+for_window [title="Floating"]   floating enable
+
+# class                 border  backgr. text    indicator
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+bar {
+    position top
+    workspace_buttons yes
+    status_command $HOME/.local/bin/conky-i3bar.sh $HOME/.i3/system.conkyrc
+    colors {
+        background  #222222
+        statusline  #808080
+    }
+}
+
+bar {
+    position bottom
+    workspace_buttons no
+    status_command $HOME/.local/bin/conky-i3bar.sh $HOME/.i3/external.conkyrc
+    colors {
+        background  #222222
+        statusline  #808080
+    }
+}

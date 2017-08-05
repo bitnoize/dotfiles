@@ -1,0 +1,6 @@
+# dotfiles/bash_aliases
+
+alias dnb="mpg123 -vZC -@ $HOME/music/dnb-radio.m3u"
+
+alias tunnel_luige="autossh -M 0 -T -N -D 127.0.0.1:9300 luige.lan"
+
