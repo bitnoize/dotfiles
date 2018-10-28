@@ -95,11 +95,12 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
+# backlight up / down
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 # lock screen by Fn-F2
 bindsym XF86ScreenSaver exec i3lock -e -c 151515
-
-# ThinkVantage
-#bindsym XF86Launch1 exec xterm
 
 # restart / exit 
 bindsym $mod+Shift+R restart
@@ -107,10 +108,7 @@ bindsym $mod+Shift+Q exit
 
 # arbitrary commands for specific windows
 # use xprop  | grep WM_CLASS to find a program class
-for_window [class="Gmrun"]      floating enable
 for_window [class="xli"]        floating enable
-for_window [class="Galculator"] floating enable
-for_window [class="Epdfview"]   floating enable
 for_window [title="Floating"]   floating enable
 
 # class                 border  backgr. text    indicator
