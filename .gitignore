@@ -1,5 +1,7 @@
 ssh/*
-!ssh/config.dist
+!ssh/config
+
+bash_aliases
 
 vim/session/
 vim/bundle/*
@@ -7,7 +9,7 @@ vim/bundle/*
 
 tmux/plugins/*
 !tmux/plugins/tpm
-tmux/resurrect
+tmux/resurrect/
 
 mcabber/mcabber.state
 mcabber/mcabber.log

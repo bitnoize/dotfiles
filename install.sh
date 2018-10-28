@@ -86,7 +86,7 @@ conf_proxychains() {
 }
 
 conf_taskwarrior() {
-  echo -ne "* task        : "
+  echo -ne "* taskwarrior : "
 
   ln -T -sf "$DOTS/taskrc" "$HOME/.taskrc"
 

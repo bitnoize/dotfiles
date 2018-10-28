@@ -44,8 +44,3 @@ if [ -f "/etc/bash_completion" ] && ! shopt -oq posix; then
   . "/etc/bash_completion"
 fi
 
-# proxies definitions
-if [ -f "$HOME/.bash_proxy" ]; then
-  . "$HOME/.bash_proxy"
-fi
-

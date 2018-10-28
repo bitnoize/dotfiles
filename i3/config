@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # font for window titles
-font -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
+font -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-*
 
 #exec xli -quiet -fillscreen -onroot $HOME/images/trees.jpg
 exec xautolock -detectsleep
@@ -64,21 +64,8 @@ floating_modifier $mod
 # Terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# Calculator
-bindsym $mod+Shift+g exec galculator
-
-# Electrum
-bindsym $mod+Shift+b exec electrum -w ~/.electrum/wallets/default
-bindsym $mod+Shift+l exec electrum-ltc -w ~/.electrum-ltc/wallets/default
-
 # Firefox
-bindsym $mod+Shift+f exec iceweasel -P -no-remote
-
-# PDF reader
-bindsym $mod+Shift+p exec epdfview
-
-# TOX messenger
-bindsym $mod+Shift+u exec utox &> /dev/null
+bindsym $mod+Shift+f exec firefox -P -no-remote
 
 # kill focused window
 bindsym $mod+Shift+x kill

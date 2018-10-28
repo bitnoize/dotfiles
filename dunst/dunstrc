@@ -1,4 +1,4 @@
-# A customizable and lightweight notification-daemon
+# dunstrc
 
 [global]
     font = Terminus-14

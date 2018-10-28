@@ -1,0 +1,21 @@
+#
+# socat -v TCP4-LISTEN:2000,bind=127.0.2.1,reuseaddr,fork \
+#   SOCKS4A:127.0.0.1:jabber.ru:5222,socksport=9050
+#
+
+# Connection
+set jid = bitnoize@jabber.ru
+set nickname = bitnoize
+set server = 127.0.2.1
+set port = 2000
+#set password = secret
+
+# SSL/TLS
+set ssl = 0
+set tls = 1
+
+set resource = sohzaiho
+set disable_random_resource = 1
+
+source ~/.mcabber/mcabberrc
+

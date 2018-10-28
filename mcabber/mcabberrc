@@ -1,24 +1,6 @@
-# dotfiles/mcabber/mcabberrc
-
 #
-# Start connection to xmpp.jp through Tor first:
-# socat -v TCP4-LISTEN:5222,bind=127.0.2.1,reuseaddr,fork \
-#   SOCKS4A:127.0.0.1:hujin.xmpp.jp:5222,socksport=9050
-# 
-
-# Connection
-set jid = quant@xmpp.jp
-set nickname = mitya
-set server = 127.0.2.1
-set port = 5222
-#set password = secret
-
-# SSL/TLS
-set ssl = 0
-set tls = 1
-
-set resource = ashaibua
-set disable_random_resource = 1
+# Mcabber
+#
 
 # Style
 set log_win_height = 5
