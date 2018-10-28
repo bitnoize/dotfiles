@@ -119,6 +119,14 @@ conf_dunst() {
   echo "OK"
 }
 
+conf_newsbeuter() {
+  echo -ne "* newsbeuter  : "
+
+  ln -T -sf "$DOTS/newsbeuter" "$HOME/.newsbeuter"
+
+  echo "OK"
+}
+
 [ -x "$( which git )"         ] && conf_git || exit 10
 [ -x "$( which bash )"        ] && conf_bash
 [ -x "$( which ssh )"         ] && conf_ssh
@@ -131,5 +139,6 @@ conf_dunst() {
 [ -x "$( which Xorg )"        ] && conf_xorg
 [ -x "$( which i3 )"          ] && conf_i3wm
 [ -x "$( which dunst )"       ] && conf_dunst
+[ -x "$( which newsbeuter )"  ] && conf_newsbeuter
 
 exit 0
