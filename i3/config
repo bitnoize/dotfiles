@@ -96,8 +96,11 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # backlight up / down
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Suspend
+bindsym XF86Tools exec systemctl suspend
 
 # lock screen by Fn-F2
 bindsym XF86ScreenSaver exec i3lock -e -c 151515
