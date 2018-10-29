@@ -22,6 +22,6 @@ proxychains/*
 !proxychains/proxychains.conf.dist
 
 newsbeuter/*
-!newsbeuter/config
-!newsbeuter/urls
+!newsbeuter/config.dist
+!newsbeuter/urls.example
 

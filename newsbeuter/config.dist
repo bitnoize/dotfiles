@@ -9,6 +9,6 @@ prepopulate-query-feeds yes
 #show-read-feeds no
 feed-sort-order unreadarticlecount-asc
 
-proxy 127.0.0.1:9050
-proxy-type socks5
+#proxy 127.0.0.1:9050
+#proxy-type socks5
 
