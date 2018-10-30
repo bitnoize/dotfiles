@@ -8,9 +8,9 @@ update_interval 1
 TEXT
 
 [
-  { "full_text" : "BTCUSD ${texeci 60 ALL_PROXY="socks5h://127.0.1.1:10040" PAIR="btcusd" ticker.sh }", "color" : "\#FFBF00" },
-  { "full_text" : "ETHUSD ${texeci 60 ALL_PROXY="socks5h://127.0.1.1:10040" PAIR="ethusd" ticker.sh }", "color" : "\#B3CDE0" },
-  { "full_text" : "LTCUSD ${texeci 60 ALL_PROXY="socks5h://127.0.1.1:10040" PAIR="ltcusd" ticker.sh }", "color" : "\#999999" },
+  { "full_text" : "BTCUSD ${texeci 60 ALL_PROXY="socks5h://127.0.0.1:10040" PAIR="btcusd" ticker.sh }", "color" : "\#FFBF00" },
+  { "full_text" : "ETHUSD ${texeci 60 ALL_PROXY="socks5h://127.0.0.1:10040" PAIR="ethusd" ticker.sh }", "color" : "\#B3CDE0" },
+  { "full_text" : "LTCUSD ${texeci 60 ALL_PROXY="socks5h://127.0.0.1:10040" PAIR="ltcusd" ticker.sh }", "color" : "\#999999" },
 
   { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://test.whoer.net:8443/v2/connection" | jq -r ".remote_address" }",  "color" : "\#E0E3BC" },
   { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://test.whoer.net:8443/v2/geoip2-isp" | jq -r ".isp" }",  "color" : "\#E0E3BC" },
