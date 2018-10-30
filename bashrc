@@ -39,8 +39,13 @@ if [ -f "$HOME/.bash_aliases" ]; then
   . "$HOME/.bash_aliases"
 fi
 
-# completion definitions
+# auto-completion
 if [ -f "/etc/bash_completion" ] && ! shopt -oq posix; then
   . "/etc/bash_completion"
+fi
+
+# proxies goes here
+if [ -f "$HOME/.bash_proxy" ]; then
+  . "$HOME/.bash_proxy"
 fi
 
