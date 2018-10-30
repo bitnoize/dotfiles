@@ -1,3 +1,7 @@
+# Radio
+
+alias spynet_station="mpg123 -vC http://liquidrelay.spynetstation.com:8000/liquidr"
+
 # Tunnels
 
 alias tunnel_tenzor_haven="autossh -M 0 -T -N -D 192.168.125.1:10010 -D 127.0.0.1:10010 tenzor.haven"

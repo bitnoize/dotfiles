@@ -27,8 +27,11 @@ conf_bash() {
   echo -ne "* bash        : "
 
   ln -T -sf "$DOTS/profile" "$HOME/.profile"
-  ln -T -sf "$DOTS/bashrc" "$HOME/.bashrc"
-  ln -T -sf "$DOTS/bash_logout" "$HOME/.bash_logout"
+  ln -T -sf "$DOTS/bashrc"  "$HOME/.bashrc"
+  ln -T -sf "$DOTS/bash_logout"   "$HOME/.bash_logout"
+  ln -T -sf "$DOTS/bash_aliases"  "$HOME/.bash_aliases"
+  ln -T -sf "$DOTS/bash_proxy"    "$HOME/.bash_proxy"
+  ln -T -sf "$DOTS/bash_cht.sh"   "$HOME/.bash_cht.sh"
 
   echo "OK"
 }

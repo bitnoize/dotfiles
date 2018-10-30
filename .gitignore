@@ -2,6 +2,7 @@ ssh/*
 !ssh/config.dist
 
 bash_aliases
+bash_proxy
 
 vim/session/
 vim/bundle/*

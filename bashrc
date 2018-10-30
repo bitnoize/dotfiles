@@ -34,18 +34,23 @@ else
   PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
 fi
 
-# aliases definitions
-if [ -f "$HOME/.bash_aliases" ]; then
-  . "$HOME/.bash_aliases"
-fi
-
 # auto-completion
-if [ -f "/etc/bash_completion" ] && ! shopt -oq posix; then
+if [ -e "/etc/bash_completion" ] && ! shopt -oq posix; then
   . "/etc/bash_completion"
 fi
 
-# proxies goes here
-if [ -f "$HOME/.bash_proxy" ]; then
+# aliases definitions
+if [ -e "$HOME/.bash_aliases" ]; then
+  . "$HOME/.bash_aliases"
+fi
+
+# proxy goes here
+if [ -e "$HOME/.bash_proxy" ]; then
   . "$HOME/.bash_proxy"
+fi
+
+# cheat.sh auto-completion
+if [ -e "$HOME/.bash_cht.sh" ]; then
+  . "$HOME/.bash_cht.sh"
 fi
 
