@@ -1,5 +1,46 @@
-# SSH client configuration
+# OpenSSH Rulz!
 
 HashKnownHosts no
 ForwardAgent yes
+
+Host *.tor *.onion
+  ProxyCommand socat STDIO SOCKS4A:127.0.0.1:%h:%p,socksport=9050
+
+#
+# Tenzor
+#
+
+Host tenzor
+  HostName 127.0.0.10
+
+Host tenzor.haven
+  HostName 192.168.125.1
+
+# It's a bad idea
+#Host tenzor.onion
+#  HostName 0123456789abcdef.onion
+#  Port 2222
+
+Host tenzor*
+  User mitya
+  IdentityFile ~/.ssh/mitya_ed25519
+# ForwardX11 yes
+
+Host ledger
+  HostName 192.168.125.10
+
+Host darkly
+  HostName 192.168.125.20
+
+Host ledger darkly
+  User mitya
+  IdentityFile ~/.ssh/mitya_ed25519
+
+Host tenzor
+  ProxyCommand socat STDIO SOCKS4A:127.0.0.1:%h:%p,socksport=10010
+
+Host ledger
+  RemoteForward 10000 127.0.0.1:10000
+  PermitLocalCommand yes
+  LocalCommand socat -u tcp4-listen:10000,reuseaddr,fork,bind=127.0.0.1 exec:notify-remote.sh 2>/dev/null &
 

@@ -1,6 +1,13 @@
-# dotfiles/bash_aliases
+# Tunnels
 
-alias dnb="mpg123 -vZC -@ $HOME/music/dnb-radio.m3u"
+alias tunnel_tenzor_haven="autossh -M 0 -T -N -D 192.168.125.1:10010 -D 127.0.0.1:10010 tenzor.haven"
 
-alias tunnel_luige="autossh -M 0 -T -N -D 127.0.0.1:9300 luige.lan"
+alias tunnel_luige_lan="autossh -M 0 -T -N -D 192.168.125.1:10020 -D 127.0.0.1:10020 luige.lan"
+
+alias tunnel_sheila_tor="autossh -M 0 -T -N -D 192.168.125.1:10030 -D 127.0.0.1:10030 sheila.tor"
+
+alias tunnel_leetka_tor="autossh -M 0 -T -N -D 192.168.125.1:10040 -D 127.0.0.1:10040 leetka.tor"
+alias tunnel_leetka_net="autossh -M 0 -T -N -D 192.168.125.1:10040 -D 127.0.0.1:10040 leetka.net"
+
+alias tunnel_malina_onion="autossh -M 0 -T -N -D 192.168.125.1:10050 -D 127.0.0.1:10050 malina.onion"
 
