@@ -6,7 +6,7 @@ set $mod Mod4
 # font for window titles
 font -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-*
 
-#exec xli -quiet -fillscreen -onroot $HOME/images/trees.jpg
+exec xli -quiet -fillscreen -onroot $HOME/images/viny-back.jpg
 exec xautolock -detectsleep
 
 # Manipulating layout
