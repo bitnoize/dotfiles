@@ -2,4 +2,12 @@ if [ -x /usr/bin/xbacklight ]; then
   /usr/bin/xbacklight -set 10 &
 fi
 
+if [ -x /usr/bin/xautolock ]; then
+  /usr/bin/xautolock -detectsleep &
+fi
+
+if [ -x /usr/bin/xss-lock ]; then
+  /usr/bin/xss-lock -- i3lock -e -c 151515 -n &
+fi
+
 exec x-window-manager

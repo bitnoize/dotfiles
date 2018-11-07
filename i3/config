@@ -6,8 +6,7 @@ set $mod Mod4
 # font for window titles
 font -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-*
 
-exec xli -quiet -fillscreen -onroot $HOME/images/viny-back.jpg
-exec xautolock -detectsleep
+#exec xli -quiet -fillscreen -onroot $HOME/images/viny-back.jpg
 
 # Manipulating layout
 #
@@ -99,11 +98,8 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
-# Suspend
-bindsym XF86Tools exec systemctl suspend
-
-# lock screen by Fn-F2
-bindsym XF86ScreenSaver exec i3lock -e -c 151515
+# lock screen by Win-Space
+bindsym $mod+space exec i3lock -e -c 151515
 
 # restart / exit 
 bindsym $mod+Shift+R restart
