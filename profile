@@ -2,6 +2,10 @@
 
 #umask 022
 
+export TERM="xterm-256color"
+export PAGER="less"
+export LESS="-iMSx4RFX"
+
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
@@ -18,7 +22,4 @@ if [ -d "$HOME/perl5" ]; then
   PERL5LIB="$HOME/perl5/lib/perl5:$HOME/perl5/lib/perl5/site_perl"
   export PERL5LIB
 fi
-
-export PAGER="less"
-export LESS="-iMSx4RFX"
 
