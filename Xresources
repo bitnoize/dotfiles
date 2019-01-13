@@ -8,8 +8,6 @@ Xft.hinting:   true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-UXTerm*decTerminalID: vt340
-
 UXTerm*scrollBar:   false
 UXTerm*cursorBlink: false
 UXTerm*renderFont:  true
