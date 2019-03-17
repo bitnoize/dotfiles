@@ -26,8 +26,8 @@ conf_git() {
 conf_bash() {
   echo -ne "* bash        : "
 
-  ln -T -sf "$DOTS/profile" "$HOME/.profile"
-  ln -T -sf "$DOTS/bashrc"  "$HOME/.bashrc"
+  ln -T -sf "$DOTS/profile"       "$HOME/.profile"
+  ln -T -sf "$DOTS/bashrc"        "$HOME/.bashrc"
   ln -T -sf "$DOTS/bash_logout"   "$HOME/.bash_logout"
   ln -T -sf "$DOTS/bash_aliases"  "$HOME/.bash_aliases"
   ln -T -sf "$DOTS/bash_proxy"    "$HOME/.bash_proxy"
@@ -36,10 +36,24 @@ conf_bash() {
   echo "OK"
 }
 
+conf_fish() {
+  echo -ne "* fish        : "
+
+  [ -d "$HOME/.config/fish" ] || mkdir -p "$HOME/.config/fish"
+
+  ln -T -sf "$DOTS/fish/config.fish"  "$HOME/.config/fish/config.fish"
+  ln -T -sf "$DOTS/fish/prompt.fish"      "$HOME/.config/fish/prompt.fish"
+  ln -T -sf "$DOTS/fish/alias.fish.dist"  "$HOME/.config/fish/alias.fish.dist"
+  ln -T -sf "$DOTS/fish/proxy.fish.dist"  "$HOME/.config/fish/proxy.fish.dist"
+  ln -T -sf "$DOTS/fish/aliases.fish.dist"  "$HOME/.config/fish/aliases.fish.dist"
+
+  echo "OK"
+}
+
 conf_ssh() {
   echo -ne "* ssh         : "
 
-  ln -T -sf "$DOTS/ssh" "$HOME/.ssh"
+  mkdir -p "$HOME/.ssh"
 
   echo "OK"
 }
@@ -75,7 +89,7 @@ conf_psql() {
 conf_mcabber() {
   echo -ne "* mcabber     : "
 
-  ln -T -sf "$DOTS/mcabber" "$HOME/.mcabber"
+  #ln -T -sf "$DOTS/mcabber" "$HOME/.mcabber"
 
   echo "OK"
 }
@@ -83,7 +97,10 @@ conf_mcabber() {
 conf_proxychains() {
   echo -ne "* proxychains : "
 
-  ln -T -sf "$DOTS/proxychains" "$HOME/.proxychains"
+  mkdir -p "$HOME/.proxychains"
+
+  ln -T -sf "$DOTS/proxychains/proxychains.conf.dist" \
+    "$HOME/.proxychains/proxychains.conf.dist"
 
   echo "OK"
 }
@@ -132,6 +149,7 @@ conf_newsbeuter() {
 
 [ -x "$( which git )"         ] && conf_git || exit 10
 [ -x "$( which bash )"        ] && conf_bash
+[ -x "$( which fish )"        ] && conf_fish
 [ -x "$( which ssh )"         ] && conf_ssh
 [ -x "$( which tmux )"        ] && conf_tmux
 [ -x "$( which vim )"         ] && conf_vim
