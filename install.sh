@@ -3,8 +3,8 @@
 set -e
 
 # Trap errors
-error() { [ $1 -ne 0 ] && echo "Error: $1"; }
-trap 'error $?' EXIT
+#error() { [ $1 -ne 0 ] && echo "Error: $1"; }
+#trap 'error $?' EXIT
 
 # Do not run this script under root
 [ "$EUID" -eq 0 ] && exit 1
@@ -42,10 +42,7 @@ conf_fish() {
   [ -d "$HOME/.config/fish" ] || mkdir -p "$HOME/.config/fish"
 
   ln -T -sf "$DOTS/fish/config.fish"  "$HOME/.config/fish/config.fish"
-  ln -T -sf "$DOTS/fish/prompt.fish"      "$HOME/.config/fish/prompt.fish"
-  ln -T -sf "$DOTS/fish/alias.fish.dist"  "$HOME/.config/fish/alias.fish.dist"
-  ln -T -sf "$DOTS/fish/proxy.fish.dist"  "$HOME/.config/fish/proxy.fish.dist"
-  ln -T -sf "$DOTS/fish/aliases.fish.dist"  "$HOME/.config/fish/aliases.fish.dist"
+  ln -T -sf "$DOTS/fish/prompt.fish"  "$HOME/.config/fish/prompt.fish"
 
   echo "OK"
 }
