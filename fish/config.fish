@@ -1,5 +1,6 @@
 # Fish shell custom config
 
+set -gx BROWSER "elinks -remote"
 set -gx CLICOLOR 1
 set -gx TERM xterm-256color
 set -gx PAGER less

@@ -11,7 +11,7 @@ Plugin 'gcmt/taboo.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jamessan/vim-gnupg'
-"Plugin 'hotchpotch/perldoc-vim'
+Plugin 'hotchpotch/perldoc-vim'
 
 call vundle#end()
 filetype plugin indent on

@@ -16,33 +16,33 @@ UXTerm*faceSize:    12
 UXTerm*visualBell:  true
 UXTerm*borderWidth: 0
 
-*background:  #1d1f21
-*foreground:  #c5c8c6
+UXTerm*background:  #1d1f21
+UXTerm*foreground:  #c5c8c6
 
 ! DarkGrey + Black
-*color0:  #151515
-*color8:  #555753
+UXTerm*color0:  #151515
+UXTerm*color8:  #555753
 ! DarkRed + Red
-*color1:  #ff6565
-*color9:  #ff8d8d
+UXTerm*color1:  #ff6565
+UXTerm*color9:  #ff8d8d
 ! DarkGreen + Green
-*color2:  #93d44f
-*color10: #c8e7a8
+UXTerm*color2:  #93d44f
+UXTerm*color10: #c8e7a8
 ! DarkYellow + Yellow
-*color3:  #eab93d
-*color11: #ffc123
+UXTerm*color3:  #eab93d
+UXTerm*color11: #ffc123
 ! DarkBlue + Blue
-*color4:  #204a87
-*color12: #3465a4
+UXTerm*color4:  #204a87
+UXTerm*color12: #3465a4
 ! DarkMagenta + Magenta
-*color5:  #ce5c00
-*color13: #f57900
+UXTerm*color5:  #ce5c00
+UXTerm*color13: #f57900
 ! DarkCyan + Cyan (both not tango)
-*color6:  #89b6e2
-*color14: #46a4ff
+UXTerm*color6:  #89b6e2
+UXTerm*color14: #46a4ff
 ! LightGrey + White
-*color7:  #cccccc
-*color15: #ffffff
+UXTerm*color7:  #cccccc
+UXTerm*color15: #ffffff
 
 Xautolock.time: 15
 Xautolock.locker: i3lock -e -c 151515
