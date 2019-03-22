@@ -14,6 +14,8 @@ DOTS="$HOME/dotfiles" && cd $DOTS
 mkdir -p "$HOME/.config" "$HOME/.local"
 ln -T -sf "$DOTS/bin" "$HOME/.local/bin"
 
+ln -T -sf "$DOTS/inputrc" "$HOME/.inputrc"
+
 conf_git() {
   echo -ne "* git         : "
 
@@ -139,7 +141,7 @@ conf_dunst() {
 conf_newsbeuter() {
   echo -ne "* newsbeuter  : "
 
-  ln -T -sf "$DOTS/newsbeuter" "$HOME/.newsbeuter"
+  mkdir -p "$HOME/.newsbeuter"
 
   echo "OK"
 }
