@@ -3,19 +3,6 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'gcmt/taboo.vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'hotchpotch/perldoc-vim'
-
-call vundle#end()
-filetype plugin indent on
-
 set magic               " For regular expressions turn magic on
 
 set history=700         " Sets how many lines of history VIM has to remember
@@ -56,7 +43,7 @@ set tm=500
 
 syntax enable           " Enable syntax highlighting
 
-colorscheme slate
+colorscheme delek
 set background=dark
 
 set encoding=utf8       " Set utf8 as standard encoding

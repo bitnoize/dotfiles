@@ -70,9 +70,22 @@ conf_tmux() {
 conf_vim() {
   echo -ne "* vim         : "
 
+  mkdir -p "$HOME/.vim"
+
   ln -T -sf "$DOTS/vimrc" "$HOME/.vimrc"
-  ln -T -sf "$DOTS/vim" "$HOME/.vim"
-  vim +PluginInstall +qall
+
+  echo "OK"
+}
+
+conf_nvim() {
+  echo -ne "* nvim        : "
+
+  mkdir -p "$HOME/.config/nvim" \
+      "$HOME/.config/nvim/autoload" \
+      "$HOME/.config/nvim/plugged"  \
+
+  ln -T -sf "$DOTS/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+  ln -T -sf "$DOTS/nvim/plug.vim" "$HOME/.config/nvim/autoload/plug.vim"
 
   echo "OK"
 }
@@ -152,6 +165,7 @@ conf_newsbeuter() {
 [ -x "$( which ssh )"         ] && conf_ssh
 [ -x "$( which tmux )"        ] && conf_tmux
 [ -x "$( which vim )"         ] && conf_vim
+[ -x "$( which nvim )"        ] && conf_nvim
 [ -x "$( which psql )"        ] && conf_psql
 [ -x "$( which mcabber )"     ] && conf_mcabber
 [ -x "$( which proxychains )" ] && conf_proxychains
