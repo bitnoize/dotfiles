@@ -20,7 +20,7 @@ conf_git() {
   echo -ne "* git         : "
 
   ln -T -sf "$DOTS/gitconfig" "$HOME/.gitconfig"
-  git submodule update --init --recursive --quiet
+  #git submodule update --init --recursive --quiet
 
   echo "OK"
 }
@@ -60,8 +60,9 @@ conf_ssh() {
 conf_tmux() {
   echo -ne "* tmux        : "
 
+  mkdir -p "$HOME/.tmux"
+
   ln -T -sf "$DOTS/tmux.conf" "$HOME/.tmux.conf"
-  ln -T -sf "$DOTS/tmux" "$HOME/.tmux"
   #tmux source-file "~/.tmux.conf" > /dev/null
 
   echo "OK"

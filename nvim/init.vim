@@ -1,6 +1,7 @@
 " define plugins to load
 call plug#begin('~/.config/nvim/plugged')
 Plug 'thaerkh/vim-workspace'
+Plug 'gcmt/taboo.vim'
 call plug#end()
 
 syntax on
