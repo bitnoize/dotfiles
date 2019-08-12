@@ -12,8 +12,9 @@ TEXT
   { "full_text" : "ETHUSD ${texeci 60 PAIR="ethusd" ticker.sh }", "color" : "\#B3CDE0" },
   { "full_text" : "LTCUSD ${texeci 60 PAIR="ltcusd" ticker.sh }", "color" : "\#999999" },
 
-  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://test.whoer.net:8443/v2/connection" | jq -r ".remote_address" }",  "color" : "\#E0E3BC" },
-  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://test.whoer.net:8443/v2/geoip2-isp" | jq -r ".isp" }",  "color" : "\#E0E3BC" },
-  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://test.whoer.net:8443/v2/fennec-myown" | jq -r ".hostname" }",  "color" : "\#E0E3BC" }
+  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/connection" | jq -r ".remote_address" }",  "color" : "\#E0E3BC" },
+  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/geoip2-city" | jq -r ".city-name" }",  "color" : "\#E0E3BC" },
+  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/geoip2-isp" | jq -r ".isp" }",  "color" : "\#E0E3BC" },
+  { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/fennec-myown" | jq -r ".hostname" }",  "color" : "\#E0E3BC" }
 ],
 
