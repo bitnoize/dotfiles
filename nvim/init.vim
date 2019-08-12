@@ -19,3 +19,11 @@ set encoding=utf-8
 set number
 set title
 
+nnoremap <leader>s :ToggleWorkspace<CR>
+
+map <C-n> :tabnew<CR>
+map <C-x> :tabclose<CR>
+
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
