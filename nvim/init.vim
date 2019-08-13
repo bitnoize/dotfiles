@@ -16,8 +16,11 @@ set ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
 set wrap breakindent
 set encoding=utf-8
-set number
+set ruler number
 set title
+set autoread autowrite
+set showtabline=2
+set laststatus=2
 
 nnoremap <leader>s :ToggleWorkspace<CR>
 
