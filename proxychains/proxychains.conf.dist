@@ -1,8 +1,8 @@
-# proxychains
+# dotfiles/proxychains/proxychains.conf
 
 strict_chain
 proxy_dns
-#quiet_mode
+quiet_mode
 
 tcp_read_time_out 15000
 tcp_connect_time_out 8000

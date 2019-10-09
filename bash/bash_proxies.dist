@@ -1,0 +1,5 @@
+# dotfiles/bash/bash_proxies
+
+#export ALL_PROXY="socks5h://127.0.0.1:9050"
+#export HTTP_PROXY="http://127.0.0.1:9080"
+

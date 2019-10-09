@@ -1,8 +1,0 @@
-alias spynetstation "mpg123 -vC -@ $HOME/music/spynetstation.m3u"
-alias dnbfm "mpg123 -vC -@ $HOME/music/dnbfm.m3u"
-
-alias tunnel_somehost_lan   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.lan"
-alias tunnel_somehost_net   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.net"
-alias tunnel_somehost_tor   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.tor"
-alias tunnel_somehost_onion "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.onion"
-

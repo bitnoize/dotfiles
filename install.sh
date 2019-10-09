@@ -1,163 +1,178 @@
-#!/bin/bash
-
-set -e
-
-# Trap errors
-#error() { [ $1 -ne 0 ] && echo "Error: $1"; }
-#trap 'error $?' EXIT
+#!/bin/sh -e
 
 # Do not run this script under root
-[ "$EUID" -eq 0 ] && exit 1
+[ "$(id -u)" -eq 0 ] && exit 10
 
-DOTS="$HOME/dotfiles" && cd $DOTS
+DOTS="$HOME/dotfiles"
+[ -d "$DOTS" ] && cd "$DOTS" || exit 20
 
+#"$HOME/.config/systemd/user"
 mkdir -p "$HOME/.config" "$HOME/.local"
-ln -T -sf "$DOTS/bin" "$HOME/.local/bin"
 
+ln -T -sf "$DOTS/bin"     "$HOME/.local/bin"
 ln -T -sf "$DOTS/inputrc" "$HOME/.inputrc"
 
 conf_git() {
-  echo -ne "* git         : "
+  printf "* git         : "
 
-  ln -T -sf "$DOTS/gitconfig" "$HOME/.gitconfig"
-  #git submodule update --init --recursive --quiet
+  ln -T -sf "$DOTS/git/config"  "$HOME/.gitconfig"
 
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_bash() {
-  echo -ne "* bash        : "
+  printf "* bash        : "
 
-  ln -T -sf "$DOTS/profile"       "$HOME/.profile"
-  ln -T -sf "$DOTS/bashrc"        "$HOME/.bashrc"
-  ln -T -sf "$DOTS/bash_logout"   "$HOME/.bash_logout"
-  ln -T -sf "$DOTS/bash_aliases"  "$HOME/.bash_aliases"
-  ln -T -sf "$DOTS/bash_proxy"    "$HOME/.bash_proxy"
-  ln -T -sf "$DOTS/bash_cht.sh"   "$HOME/.bash_cht.sh"
+  ln -T -sf "$DOTS/bash/profile"      "$HOME/.profile"
+  ln -T -sf "$DOTS/bash/bashrc"       "$HOME/.bashrc"
+  ln -T -sf "$DOTS/bash/bash_logout"  "$HOME/.bash_logout"
 
-  echo "OK"
+  [ ! -f "$HOME/.bash_aliases" ] && \
+    cp "$DOTS/bash/bash_aliases.dist" "$HOME/.bash_aliases"
+
+  [ ! -f "$HOME/.bash_proxies" ] && \
+    cp "$DOTS/bash/bash_proxies.dist" "$HOME/.bash_proxies"
+
+  printf "OK\n"
 }
 
 conf_fish() {
-  echo -ne "* fish        : "
+  printf "* fish        : "
 
-  [ -d "$HOME/.config/fish" ] || mkdir -p "$HOME/.config/fish"
+  mkdir -p "$HOME/.config/fish"
 
   ln -T -sf "$DOTS/fish/config.fish"  "$HOME/.config/fish/config.fish"
-  ln -T -sf "$DOTS/fish/prompt.fish"  "$HOME/.config/fish/prompt.fish"
 
-  echo "OK"
+  [ ! -f "$HOME/.config/fish/aliases.fish" ] && \
+    cp "$DOTS/fish/aliases.fish.dist" "$HOME/.config/fish/aliases.fish"
+
+  [ ! -f "$HOME/.config/fish/proxies.fish" ] && \
+    cp "$DOTS/fish/proxies.fish.dist" "$HOME/.config/fish/proxies.fish"
+
+  printf "OK\n"
 }
 
 conf_ssh() {
-  echo -ne "* ssh         : "
+  printf "* ssh         : "
 
   mkdir -p "$HOME/.ssh"
 
-  echo "OK"
+  [ ! -f "$HOME/.ssh/config" ] && \
+    cp "$DOTS/ssh/config.dist" "$HOME/.ssh/config"
+
+  printf "OK\n"
 }
 
 conf_tmux() {
-  echo -ne "* tmux        : "
+  printf "* tmux        : "
 
   mkdir -p "$HOME/.tmux"
 
-  ln -T -sf "$DOTS/tmux.conf" "$HOME/.tmux.conf"
-  #tmux source-file "~/.tmux.conf" > /dev/null
+  ln -T -sf "$DOTS/tmux/tmux.conf" "$HOME/.tmux.conf"
+  tmux source-file "$HOME/.tmux.conf" > /dev/null
 
-  echo "OK"
-}
-
-conf_vim() {
-  echo -ne "* vim         : "
-
-  mkdir -p "$HOME/.vim"
-
-  ln -T -sf "$DOTS/vimrc" "$HOME/.vimrc"
-
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_nvim() {
-  echo -ne "* nvim        : "
+  printf "* nvim        : "
 
   mkdir -p "$HOME/.config/nvim" \
-      "$HOME/.config/nvim/autoload" \
-      "$HOME/.config/nvim/plugged"  \
+    "$HOME/.config/nvim/autoload" \
+    "$HOME/.config/nvim/plugged"  \
 
   ln -T -sf "$DOTS/nvim/init.vim" "$HOME/.config/nvim/init.vim"
   ln -T -sf "$DOTS/nvim/plug.vim" "$HOME/.config/nvim/autoload/plug.vim"
 
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_psql() {
-  echo -ne "* psql        : "
+  printf "* psql        : "
 
-  ln -T -sf "$DOTS/psqlrc" "$HOME/.psqlrc"
+  ln -T -sf "$DOTS/psql/psqlrc" "$HOME/.psqlrc"
 
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_mcabber() {
-  echo -ne "* mcabber     : "
+  printf "* mcabber     : "
 
-  #ln -T -sf "$DOTS/mcabber" "$HOME/.mcabber"
+  mkdir -p "$HOME/.mcabber/logs" "$HOME/.mcabber/otr"
 
-  echo "OK"
+  ln -T -sf "$DOTS/mcabber/mcabberrc" "$HOME/.mcabber/mcabberrc"
+  ln -T -sf "$DOTS/mcabber/notify-send.sh" "$HOME/.mcabber/notify-send.sh"
+  cp "$DOTS/mcabber/mcabberrc.example" "$HOME/.mcabber/mcabberrc.example"
+
+  printf "OK\n"
 }
 
 conf_proxychains() {
-  echo -ne "* proxychains : "
+  printf "* proxychains : "
 
   mkdir -p "$HOME/.proxychains"
 
-  ln -T -sf "$DOTS/proxychains/proxychains.conf.dist" \
-    "$HOME/.proxychains/proxychains.conf.dist"
+  [ ! -f "$HOME/.proxychains/proxychains.conf" ] && \
+    cp "$DOTS/proxychains/proxychains.conf.dist" \
+      "$HOME/.proxychains/proxychains.conf"
 
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_taskwarrior() {
-  echo -ne "* taskwarrior : "
+  printf "* taskwarrior : "
 
-  ln -T -sf "$DOTS/taskrc" "$HOME/.taskrc"
+  mkdir -p "$HOME/.task"
 
-  echo "OK"
+  ln -T -sf "$DOTS/taskwarrior/taskrc" "$HOME/.taskrc"
+
+  printf "OK\n"
 }
 
 conf_xorg() {
-  echo -ne "* xorg        : "
+  printf "* xorg        : "
 
-  ln -T -sf "$DOTS/Xresources" "$HOME/.Xresources"
-  ln -T -sf "$DOTS/Xsession" "$HOME/.Xsession"
-  ln -T -sf "$DOTS/fonts.conf" "$HOME/.fonts.conf"
+  ln -T -sf "$DOTS/xorg/Xresources" "$HOME/.Xresources"
+  ln -T -sf "$DOTS/xorg/Xsession"   "$HOME/.Xsession"
+  ln -T -sf "$DOTS/xorg/fonts.conf" "$HOME/.fonts.conf"
 
-  echo "OK"
+  printf "OK\n"
 }
 
 conf_i3wm() {
-  echo -ne "* i3wm        : "
+  printf "* i3wm        : "
 
-  ln -T -sf "$DOTS/i3" "$HOME/.i3"
+  mkdir -p "$HOME/.i3"
 
-  echo "OK"
+  ln -T -sf "$DOTS/i3/config"           "$HOME/.i3/config"
+  ln -T -sf "$DOTS/i3/external.conkyrc" "$HOME/.i3/external.conkyrc"
+  ln -T -sf "$DOTS/i3/system.conkyrc"   "$HOME/.i3/system.conkyrc"
+
+  printf "OK\n"
 }
 
 conf_dunst() {
-  echo -ne "* dunst       : "
+  printf "* dunst       : "
 
-  ln -T -sf "$DOTS/dunst" "$HOME/.config/dunst"
+  mkdir -p "$HOME/.config/dunst"
 
-  echo "OK"
+  ln -T -sf "$DOTS/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
+
+  printf "OK\n"
 }
 
 conf_newsbeuter() {
-  echo -ne "* newsbeuter  : "
+  printf "* newsbeuter  : "
 
   mkdir -p "$HOME/.newsbeuter"
 
-  echo "OK"
+  [ ! -f "$HOME/.newsbeuter/config" ] && \
+    cp "$DOTS/newsbeuter/config.dist" "$HOME/.newsbeuter/config"
+
+  [ ! -f "$HOME/.newsbeuter/urls" ] && \
+    cp "$DOTS/newsbeuter/urls.dist" "$HOME/.newsbeuter/urls"
+
+  printf "OK\n"
 }
 
 [ -x "$( which git )"         ] && conf_git || exit 10
@@ -165,7 +180,6 @@ conf_newsbeuter() {
 [ -x "$( which fish )"        ] && conf_fish
 [ -x "$( which ssh )"         ] && conf_ssh
 [ -x "$( which tmux )"        ] && conf_tmux
-[ -x "$( which vim )"         ] && conf_vim
 [ -x "$( which nvim )"        ] && conf_nvim
 [ -x "$( which psql )"        ] && conf_psql
 [ -x "$( which mcabber )"     ] && conf_mcabber

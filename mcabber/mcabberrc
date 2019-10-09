@@ -1,6 +1,4 @@
-#
-# Mcabber
-#
+# dotfiles/mcabber/mcabberrc
 
 # Style
 set log_win_height = 5
@@ -14,7 +12,7 @@ set roster_no_leading_space = 0
 # - 1: "name <jid/resource>"
 # - 2: "name/resource"
 # - 3: "name"
-set buddy_format = 2
+set buddy_format = 3
 
 # Display the status changes in the chat buffers
 # 0: never  1: only connect/disconnect  2: all
@@ -57,7 +55,7 @@ otrpolicy default always
 #set fifo_ignore = 0
 
 # Events
-set events_command = ~/.mcabber/eventcmd
+set events_command = ~/.mcabber/notify-send.sh
 set events_ignore_active_window = 0
 set eventcmd_use_nickname = 1
 

@@ -1,0 +1,14 @@
+# dotfiles/git/config
+
+[user]
+  name = "Dmitry Krutikov"
+  email = "hamster.fundation@gmail.com"
+[color]
+  ui = true
+[core]
+  editor = vim
+[merge]
+  tool = vimdiff
+[push]
+  default = simple
+

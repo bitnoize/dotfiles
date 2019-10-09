@@ -1,4 +1,6 @@
-browser elinks
+# dotfiles/newsbeuter/config
+
+browser "elinks -remote 'openURL('%u', new-tab)'"
 
 auto-reload yes
 refresh-on-startup yes
@@ -11,6 +13,6 @@ notify-program /home/mitya/.newsbeuter/notify-send.sh
 #notify-screen yes
 
 #use-proxy yes
-#proxy 192.168.125.1:9060
+#proxy 127.0.0.1:9050
 #proxy-type socks5
 

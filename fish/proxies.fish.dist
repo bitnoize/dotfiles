@@ -1,0 +1,5 @@
+# dotfiles/fish/proxies.fish
+
+set -gx ALL_PROXY   "socks5h://127.0.0.1:9050"
+set -gx HTTP_PROXY  "http://127.0.0.1:9080"
+

@@ -1,0 +1,14 @@
+# dotfiles/fish/aliases.fish
+
+# Radio
+
+alias radio_dnb           "mpg123 -vCZ -p none -@ ~/music/dnb.m3u"
+alias radio_jazz          "mpg123 -vCZ -p none -@ ~/music/jazz.m3u"
+
+# SSH Tunnels
+
+alias tunnel_somehost_lan   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.lan"
+alias tunnel_somehost_net   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.net"
+alias tunnel_somehost_tor   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.tor"
+alias tunnel_somehost_onion "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.onion"
+

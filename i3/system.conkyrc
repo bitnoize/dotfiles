@@ -12,6 +12,5 @@ TEXT
   { "full_text" : "MEM ${mem}", "color" : "\#00FF00" },
   { "full_text" : "CPU ${cpu cpu0}%", "color" : "\#FF00FF" },
   { "full_text" : "BAT ${exec acpi -b | awk "{print $1}" | sed 's/\([^:]*\): \([^,]*\), \([0-9%]*\).*/\3/'}", "color" : "\#FF3300" },
-  { "full_text" : "VOL ${exec amixer get Master | grep -oE "[[:digit:]]*%"}", "color" : "\#3366CC" },
   { "full_text" : "${tztime Europe/Moscow %a %d %b %H:%M}" , "color" : "\#FFFFFF" }
 ],
