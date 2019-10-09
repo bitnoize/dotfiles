@@ -164,6 +164,16 @@ conf_dunst() {
   printf "OK\n"
 }
 
+conf_kitty() {
+  printf "* kitty       : "
+
+  mkdir -p "$HOME/.config/kitty"
+
+  ln -T -sf "$DOTS/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+  printf "OK\n"
+}
+
 conf_newsbeuter() {
   printf "* newsbeuter  : "
 
@@ -191,6 +201,7 @@ conf_newsbeuter() {
 [ -x "$( which Xorg )"        ] && conf_xorg
 [ -x "$( which i3 )"          ] && conf_i3wm
 [ -x "$( which dunst )"       ] && conf_dunst
+[ -x "$( which kitty )"       ] && conf_kitty
 [ -x "$( which newsbeuter )"  ] && conf_newsbeuter
 
 exit 0

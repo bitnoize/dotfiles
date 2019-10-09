@@ -1,5 +1,9 @@
 # dotfiles/xorg/Xsession
 
+if [ -x /usr/bin/xrandr ]; then
+  /usr/bin/xrandr --dpi 120 &
+fi
+
 if [ -x /usr/bin/xbacklight ]; then
   /usr/bin/xbacklight -set 10 &
 fi
