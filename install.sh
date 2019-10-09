@@ -69,7 +69,7 @@ conf_tmux() {
   mkdir -p "$HOME/.tmux"
 
   ln -T -sf "$DOTS/tmux/tmux.conf" "$HOME/.tmux.conf"
-  tmux source-file "$HOME/.tmux.conf" > /dev/null
+  #tmux source-file "$HOME/.tmux.conf" > /dev/null
 
   printf "OK\n"
 }
@@ -79,7 +79,7 @@ conf_nvim() {
 
   mkdir -p "$HOME/.config/nvim" \
     "$HOME/.config/nvim/autoload" \
-    "$HOME/.config/nvim/plugged"  \
+    "$HOME/.config/nvim/plugged"
 
   ln -T -sf "$DOTS/nvim/init.vim" "$HOME/.config/nvim/init.vim"
   ln -T -sf "$DOTS/nvim/plug.vim" "$HOME/.config/nvim/autoload/plug.vim"
@@ -98,10 +98,13 @@ conf_psql() {
 conf_mcabber() {
   printf "* mcabber     : "
 
-  mkdir -p "$HOME/.mcabber/logs" "$HOME/.mcabber/otr"
+  mkdir -p "$HOME/.mcabber" \
+    "$HOME/.mcabber/logs" \
+    "$HOME/.mcabber/otr"
 
   ln -T -sf "$DOTS/mcabber/mcabberrc" "$HOME/.mcabber/mcabberrc"
   ln -T -sf "$DOTS/mcabber/notify-send.sh" "$HOME/.mcabber/notify-send.sh"
+
   cp "$DOTS/mcabber/mcabberrc.example" "$HOME/.mcabber/mcabberrc.example"
 
   printf "OK\n"
@@ -175,7 +178,7 @@ conf_newsbeuter() {
   printf "OK\n"
 }
 
-[ -x "$( which git )"         ] && conf_git || exit 10
+[ -x "$( which git )"         ] && conf_git || exit 30
 [ -x "$( which bash )"        ] && conf_bash
 [ -x "$( which fish )"        ] && conf_fish
 [ -x "$( which ssh )"         ] && conf_ssh
