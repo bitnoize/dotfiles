@@ -55,7 +55,7 @@ otrpolicy default always
 #set fifo_ignore = 0
 
 # Events
-set events_command = ~/.mcabber/notify-send.sh
+set events_command = ~/.mcabber/eventcmd
 set events_ignore_active_window = 0
 set eventcmd_use_nickname = 1
 

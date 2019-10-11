@@ -1,13 +1,15 @@
 #!/bin/sh -e
 
+# Enable systemd for specific user
+# sudo loginctl enable-linger mitya
+
 # Do not run this script under root
 [ "$(id -u)" -eq 0 ] && exit 10
 
 DOTS="$HOME/dotfiles"
 [ -d "$DOTS" ] && cd "$DOTS" || exit 20
 
-#"$HOME/.config/systemd/user"
-mkdir -p "$HOME/.config" "$HOME/.local"
+mkdir -p "$HOME/.config" "$HOME/.local" "$HOME/.config/systemd/user"
 
 ln -T -sf "$DOTS/bin"     "$HOME/.local/bin"
 ln -T -sf "$DOTS/inputrc" "$HOME/.inputrc"
@@ -132,6 +134,24 @@ conf_taskwarrior() {
   printf "OK\n"
 }
 
+conf_timewarrior() {
+  printf "* timewarrior : "
+
+  mkdir -p "$HOME/.timew"
+
+  ln -T -sf "$DOTS/timewarrior/timewrc" "$HOME/.timewrc"
+
+  printf "OK\n"
+}
+
+conf_remind() {
+  printf "* remind      : "
+
+  mkdir -p "$HOME/.reminders"
+
+  printf "OK\n"
+}
+
 conf_xorg() {
   printf "* xorg        : "
 
@@ -198,6 +218,8 @@ conf_newsbeuter() {
 [ -x "$( which mcabber )"     ] && conf_mcabber
 [ -x "$( which proxychains )" ] && conf_proxychains
 [ -x "$( which task )"        ] && conf_taskwarrior
+#[ -x "$( which timew )"       ] && conf_timewarrior
+[ -x "$( which remind )"      ] && conf_remind
 [ -x "$( which Xorg )"        ] && conf_xorg
 [ -x "$( which i3 )"          ] && conf_i3wm
 [ -x "$( which dunst )"       ] && conf_dunst

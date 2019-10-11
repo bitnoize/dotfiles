@@ -1,14 +1,21 @@
 # dotfiles/fish/aliases.fish
 
 # Radio
-
 alias radio_dnb           "mpg123 -vCZ -p none -@ ~/music/dnb.m3u"
 alias radio_jazz          "mpg123 -vCZ -p none -@ ~/music/jazz.m3u"
 
-# SSH Tunnels
+# SSH
+alias tunnel_host_lan     "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.lan"
+alias tunnel_host_net     "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.net"
+alias tunnel_host_tor     "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.tor"
+alias tunnel_host_onion   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.onion"
 
-alias tunnel_somehost_lan   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.lan"
-alias tunnel_somehost_net   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.net"
-alias tunnel_somehost_tor   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.tor"
-alias tunnel_somehost_onion "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.onion"
+# Socat
+alias socat_example       "socat -v TCP4-LISTEN:20000,bind=127.0.0.1,reuseaddr,fork SOCKS4A:127.0.0.1:xmpp.jabber.at:5222,socksport=9050"
+
+# Mcabber
+alias mcabber_example     "mcabber -f /home/mitya/.mcabber/mcabberrc.example"
+
+# Termbin
+alias termbin             "nc -x 127.0.0.1:9050 termbin.com 9999"
 

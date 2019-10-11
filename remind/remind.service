@@ -1,0 +1,13 @@
+[Unit]
+Description=Sophisticated calendar and alarm program
+
+[Service]
+Type=simple
+Environment="REMIND_NOTIFY=-knotify-send 'Remind' '%%s'"
+Environment="REMIND_STORE=%h/.remind/reminders.rem"
+ExecStart=/usr/bin/remind -de -dx -dt -dv -dl -df -z1 ${REMIND_NOTIFY} $REMIND_STORE
+#Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
