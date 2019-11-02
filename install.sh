@@ -208,6 +208,14 @@ conf_newsbeuter() {
   printf "OK\n"
 }
 
+conf_rlang() {
+  printf "* rlang       : "
+
+  ln -T -sf "$DOTS/rlang/Rprofile" "$HOME/.Rprofile"
+
+  printf "OK\n"
+}
+
 [ -x "$( which git )"         ] && conf_git || exit 30
 [ -x "$( which bash )"        ] && conf_bash
 [ -x "$( which fish )"        ] && conf_fish
@@ -225,5 +233,6 @@ conf_newsbeuter() {
 [ -x "$( which dunst )"       ] && conf_dunst
 [ -x "$( which kitty )"       ] && conf_kitty
 [ -x "$( which newsbeuter )"  ] && conf_newsbeuter
+[ -x "$( which R )"           ] && conf_rlang
 
 exit 0
