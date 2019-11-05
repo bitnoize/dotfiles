@@ -17,5 +17,21 @@ alias socat_example       "socat -v TCP4-LISTEN:20000,bind=127.0.0.1,reuseaddr,f
 alias mcabber_example     "mcabber -f /home/mitya/.mcabber/mcabberrc.example"
 
 # Termbin
-alias termbin             "nc -x 127.0.0.1:9050 termbin.com 9999"
+function termbin --argument-names filename
+  if test -n "$filename"
+    echo (cat "$filename" | nc -X 5 -x "127.0.0.1:9050" termbin.com 9999)
+  else
+    echo "usage: termbin [filename]"
+  end
+end
+
+# Tny
+function tny --argument-names url keyword
+  if test -n "$url"
+    echo (curl -s -x "socks5h://127.0.0.1:9050" -- \
+      "http://tny.im/yourls-api.php?action=shorturl&format=simple&url=$url&keyword=$keyword")
+  else
+    echo "usage: tny url [keyword]"
+  end
+end
 
