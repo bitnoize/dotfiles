@@ -1,0 +1,50 @@
+# dotfiles/fish/aliases.fish
+
+# Radio
+if type -q mpg123
+  alias radio_dnb         "mpg123 -vCZ -p none -@ ~/music/dnb.m3u"
+  alias radio_jazz        "mpg123 -vCZ -p none -@ ~/music/jazz.m3u"
+end
+
+# SSH
+if type -q autossh
+  alias tunnel_host_lan   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.lan"
+  alias tunnel_host_net   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.net"
+  alias tunnel_host_tor   "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.tor"
+  alias tunnel_host_onion "autossh -M 0 -T -N -D 127.0.0.1:10010 somehost.onion"
+end
+
+# Socat
+if type -q socat
+  alias socat_example     "socat -v TCP4-LISTEN:20000,bind=127.0.0.1,reuseaddr,fork SOCKS4A:127.0.0.1:xmpp.jabber.at:5222,socksport=9050"
+end
+
+# Mcabber
+if type -q mcabber
+  alias mcabber_example   "mcabber -f /home/mitya/.mcabber/mcabberrc.example"
+end
+
+# Remind
+if type -q remind
+  alias watch_remind      "watch -tc -n5 -- remind -sa ~/.reminders"
+end
+
+# Termbin
+function termbin --argument-names filename
+  if test -n "$filename"
+    echo (cat "$filename" | nc -X 5 -x "127.0.0.1:9050" termbin.com 9999)
+  else
+    echo "usage: termbin [filename]"
+  end
+end
+
+# Tny
+function tny --argument-names url keyword
+  if test -n "$url"
+    echo (curl -s -x "socks5h://127.0.0.1:9050" -- \
+      "http://tny.im/yourls-api.php?action=shorturl&format=simple&url=$url&keyword=$keyword")
+  else
+    echo "usage: tny url [keyword]"
+  end
+end
+

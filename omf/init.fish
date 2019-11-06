@@ -8,12 +8,12 @@ set -gx TERM xterm-256color
 set -gx PAGER less
 set -gx LESS -iMSx4RFX
 
-if test -f $HOME/.config/fish/aliases.fish
-  . $HOME/.config/fish/aliases.fish
+if test -f $OMF_CONFIG/aliases.fish
+  . $OMF_CONFIG/aliases.fish
 end
 
-if test -f $HOME/.config/fish/proxies.fish
-  . $HOME/.config/fish/proxies.fish
+if test -f $OMF_CONFIG/proxies.fish
+  . $OMF_CONFIG/proxies.fish
 end
 
 if test -d $HOME/.local

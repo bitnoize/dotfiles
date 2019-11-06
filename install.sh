@@ -41,15 +41,20 @@ conf_bash() {
 conf_fish() {
   printf "* fish        : "
 
-  mkdir -p "$HOME/.config/fish"
+  # https://get.oh-my.fish
+  mkdir -p "$HOME/.config/omf"
 
-  ln -T -sf "$DOTS/fish/config.fish"  "$HOME/.config/fish/config.fish"
+  ln -T -sf "$DOTS/omf/init.fish" "$HOME/.config/omf/init.fish"
 
-  [ ! -f "$HOME/.config/fish/aliases.fish" ] && \
-    cp "$DOTS/fish/aliases.fish.dist" "$HOME/.config/fish/aliases.fish"
+  ln -T -sf "$DOTS/omf/theme"   "$HOME/.config/omf/theme"
+  ln -T -sf "$DOTS/omf/bundle"  "$HOME/.config/omf/bundle"
+  ln -T -sf "$DOTS/omf/channel" "$HOME/.config/omf/channel"
 
-  [ ! -f "$HOME/.config/fish/proxies.fish" ] && \
-    cp "$DOTS/fish/proxies.fish.dist" "$HOME/.config/fish/proxies.fish"
+  [ ! -f "$HOME/.config/omf/aliases.fish" ] && \
+    cp "$DOTS/omf/aliases.fish.dist" "$HOME/.config/omf/aliases.fish"
+
+  [ ! -f "$HOME/.config/omf/proxies.fish" ] && \
+    cp "$DOTS/omf/proxies.fish.dist" "$HOME/.config/omf/proxies.fish"
 
   printf "OK\n"
 }
