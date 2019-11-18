@@ -66,6 +66,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Firefox
 bindsym $mod+Shift+f exec firefox -P -no-remote
 
+# PulseAudio
+bindsym $mod+Shift+p exec pavucontrol
+
 # kill focused window
 bindsym $mod+Shift+x kill
 
