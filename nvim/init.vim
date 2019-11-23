@@ -2,6 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'thaerkh/vim-workspace'
 Plug 'gcmt/taboo.vim'
+Plug 'powerman/vim-plugin-viewdoc'
 call plug#end()
 
 syntax on
