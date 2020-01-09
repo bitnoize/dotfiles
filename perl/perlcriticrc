@@ -1,0 +1,60 @@
+color = 1
+only = 1
+verbose = %f: [%p] %m at line %l, column %c\n
+severity = 2
+
+color-severity-highest = bold red
+color-severity-high    = yellow
+color-severity-medium  = bold blue
+color-severity-low     = blue
+color-severity-lowest  = magenta
+
+#
+# Core policies
+#
+
+# Always use strict
+[TestingAndDebugging::RequireUseStrict]
+severity = 5
+# Some modules enable strict automatically, so no need to enforce it
+equivalent_modules = Moo Moose Moo::Role Moose::Role strictures common::sense
+# Use of 'no strict' is forbidden
+[TestingAndDebugging::ProhibitNoStrict]
+
+[TestingAndDebugging::RequireUseWarnings]
+severity = 5
+# Some modules enable warnings utomatically, so no need to enforce it
+equivalent_modules = Moo Moose Moo::Role Moose::Role strictures
+# Use of 'no warnings' is forbidden
+[TestingAndDebugging::ProhibitNoWarnings]
+
+# No bareword filehandles
+[InputOutput::ProhibitBarewordFileHandles]
+
+# Always use three arg open and check the result
+[InputOutput::ProhibitTwoArgOpen]
+severity = 5
+[InputOutput::RequireCheckedOpen]
+
+#
+# 'Avoid human errors' policies
+#
+
+# Don't use the comma operator as a statement separator
+[ValuesAndExpressions::ProhibitCommaSeparatedStatements]
+# Allow map and grep blocks to return lists.
+allow_last_statement_to_be_comma_separated_in_map_and_grep = 0
+
+# It is unsafe to call: require "string"
+# It is wrong to call: eval "string"
+[BuiltinFunctions::ProhibitStringyEval]
+
+[BuiltinFunctions::ProhibitStringySplit]
+severity = 3
+
+# To avoid confusion if labeled blocks are used
+[ControlStructures::ProhibitLabelsWithSpecialBlockNames]
+
+# Do not put in production testing code with 'exit' or 'die' statements in the middle
+[ControlStructures::ProhibitUnreachableCode]
+

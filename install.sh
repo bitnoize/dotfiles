@@ -213,8 +213,24 @@ conf_newsbeuter() {
   printf "OK\n"
 }
 
-conf_rlang() {
-  printf "* rlang       : "
+conf_perlcritic() {
+  printf "* perlcritic  : "
+
+  ln -T -sf "$DOTS/perl/perlcriticrc" "$HOME/.perlcriticrc"
+
+  printf "OK\n"
+}
+
+conf_perltidy() {
+  printf "* perltidy    : "
+
+  ln -T -sf "$DOTS/perl/perltidyrc"   "$HOME/.perltidyrc"
+
+  printf "OK\n"
+}
+
+conf_R() {
+  printf "* R           : "
 
   ln -T -sf "$DOTS/rlang/Rprofile" "$HOME/.Rprofile"
 
@@ -238,6 +254,8 @@ conf_rlang() {
 [ -x "$( which dunst )"       ] && conf_dunst
 [ -x "$( which kitty )"       ] && conf_kitty
 [ -x "$( which newsbeuter )"  ] && conf_newsbeuter
-[ -x "$( which R )"           ] && conf_rlang
+[ -x "$( which perlcritic )"  ] && conf_perlcritic
+[ -x "$( which perltidy )"    ] && conf_perltidy
+[ -x "$( which R )"           ] && conf_R
 
 exit 0

@@ -1,0 +1,15 @@
+# Perl source formatter config
+
+-pbp     # Start with Perl Best Practices
+-w       # Show all warnings
+-iob     # Ignore old breakpoints
+-l=80    # 80 characters per line
+-mbl=2   # No more than 2 blank lines
+-i=2     # Indentation
+-ci=2    # Continuation indentation
+-vt=0    # Vertical tightness
+-pt=2    # Parenthesis tightness
+-bt=2    # Brace tightness
+-sbt=2   # Square bracket tightness
+-bbt=0   # Block brace tightness
+-isbc    # Don't indent comments without leading space
