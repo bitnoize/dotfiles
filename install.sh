@@ -237,6 +237,14 @@ conf_R() {
   printf "OK\n"
 }
 
+conf_nethack() {
+  printf "* nethack     : "
+
+  ln -T -sf "$DOTS/nethack/nethackrc" "$HOME/.nethackrc"
+
+  printf "OK\n"
+}
+
 [ -x "$( which git )"         ] && conf_git || exit 30
 [ -x "$( which bash )"        ] && conf_bash
 [ -x "$( which fish )"        ] && conf_fish
@@ -257,5 +265,6 @@ conf_R() {
 [ -x "$( which perlcritic )"  ] && conf_perlcritic
 [ -x "$( which perltidy )"    ] && conf_perltidy
 [ -x "$( which R )"           ] && conf_R
+[ -x "$( which nethack )"     ] && conf_nethack
 
 exit 0

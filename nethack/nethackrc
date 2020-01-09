@@ -1,0 +1,7 @@
+OPTIONS=color
+
+OPTIONS=name:Mitya,race:human,role:monk,gender:male,align=chaotic
+OPTIONS=pettype:dog,dogname:Chuk,hilite_pet
+
+OPTIONS=autopickup,pickup_types:$?!/=
+
