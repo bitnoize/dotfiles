@@ -1,5 +1,7 @@
 # dotfiles/fish/config.fish
 
+set -U fish_greeting
+
 set -gx LANG "ru_RU.UTF8"
 set -gx TZ "Europe/Moscow"
 set -gx BROWSER "elinks -remote"
