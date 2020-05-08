@@ -7,23 +7,34 @@ Plug 'powerman/vim-plugin-viewdoc'
 Plug 'mileszs/ack.vim'
 call plug#end()
 
-syntax on
-
-""" Coloring
-color delek
-set background=dark
-
 filetype plugin indent on
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
-set ignorecase smartcase hlsearch
-set ruler laststatus=2 showcmd showmode
-set wrap breakindent
+
+syntax on
+color slate
+
 set encoding=utf-8
-set ruler number
-set title
-set autoread autowrite
-set showtabline=2
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+set autoindent
+set ignorecase
+set smartcase
+set hlsearch
+set ruler
 set laststatus=2
+set showcmd
+set showmode
+set wrap
+set breakindent
+set number
+set title
+set autoread
+set autowrite
+set showtabline=2
+set termguicolors
+set background=dark
 
 nnoremap <leader>s :ToggleWorkspace<CR>
 
@@ -31,5 +42,6 @@ map <C-n> :tabnew<CR>
 map <C-x> :tabclose<CR>
 map <C-o> :NERDTreeToggle<CR>
 
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap < :tabprevious<CR>
+nnoremap > :tabnext<CR>
+
