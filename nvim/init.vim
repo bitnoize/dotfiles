@@ -5,6 +5,7 @@ Plug 'thaerkh/vim-workspace'
 Plug 'gcmt/taboo.vim'
 Plug 'powerman/vim-plugin-viewdoc'
 Plug 'mileszs/ack.vim'
+Plug 'jamessan/vim-gnupg'
 call plug#end()
 
 filetype plugin indent on
