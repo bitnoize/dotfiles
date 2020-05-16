@@ -232,7 +232,15 @@ conf_perltidy() {
 conf_R() {
   printf "* R           : "
 
-  ln -T -sf "$DOTS/rlang/Rprofile" "$HOME/.Rprofile"
+  ln -T -sf "$DOTS/R/Rprofile" "$HOME/.Rprofile"
+
+  printf "OK\n"
+}
+
+conf_wcalc() {
+  printf "* R           : "
+
+  ln -T -sf "$DOTS/wcalc/wcalcrc" "$HOME/.wcalcrc"
 
   printf "OK\n"
 }
@@ -265,6 +273,7 @@ conf_nethack() {
 [ -x "$( which perlcritic )"  ] && conf_perlcritic
 [ -x "$( which perltidy )"    ] && conf_perltidy
 [ -x "$( which R )"           ] && conf_R
+[ -x "$( which wcalc )"       ] && conf_wcalc
 [ -x "$( which nethack )"     ] && conf_nethack
 
 exit 0
