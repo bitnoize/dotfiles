@@ -1,7 +1,8 @@
 " define plugins to load
 call plug#begin('~/.config/nvim/plugged')
-Plug 'preservim/nerdtree'
 Plug 'thaerkh/vim-workspace'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 Plug 'gcmt/taboo.vim'
 Plug 'powerman/vim-plugin-viewdoc'
 Plug 'mileszs/ack.vim'
