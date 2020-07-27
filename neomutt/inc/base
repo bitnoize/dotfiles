@@ -1,0 +1,29 @@
+# Caches
+set header_cache = "~/.config/neomutt/cache/headercache"
+set message_cachedir = "~/.config/neomutt/cache/messagecache"
+set certificate_file = "~/.config/neomutt/cache/certificates"
+
+# Automatic viewing html
+auto_view text/html
+
+# Sync and check intervals
+set read_inc = 100
+set mail_check = 60
+set timeout = 15
+
+# Futher config
+set tmpdir = "~/.config/neomutt/tmp"
+set mailcap_path = "~/.mailcap"
+set abort_nosubject = ask-yes
+set abort_unmodified = yes
+set delete = ask-yes
+set editor = "$EDITOR"
+set content_type = "text/plain"
+set mark_old = no
+set sort = threads
+set sort_aux = reverse-last-date-received
+set pager_index_lines = 15
+set edit_headers
+set beep_new
+
+# vim: ft=muttrc

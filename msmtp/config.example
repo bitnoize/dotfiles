@@ -1,0 +1,20 @@
+defaults
+
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.msmtp.log
+
+account example@test.com
+host mail.test.com
+port 587
+protocol smtp
+auth on
+from example@test.com
+user example@test.com
+password secret
+
+account default : exampletest.com
+
+aliases ~/.config/msmtp/aliases
+

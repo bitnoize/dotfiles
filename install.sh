@@ -70,6 +70,14 @@ conf_ssh() {
   printf "OK\n"
 }
 
+conf_msmtp() {
+  printf "* msmtp       : "
+
+  mkdir -p "$HOME/.config/msmtp"
+
+  printf "OK\n"
+}
+
 conf_tmux() {
   printf "* tmux        : "
 
@@ -81,8 +89,8 @@ conf_tmux() {
   printf "OK\n"
 }
 
-conf_nvim() {
-  printf "* nvim        : "
+conf_neovim() {
+  printf "* neovim      : "
 
   mkdir -p "$HOME/.config/nvim" \
     "$HOME/.config/nvim/autoload" \
@@ -90,6 +98,30 @@ conf_nvim() {
 
   ln -T -sf "$DOTS/nvim/init.vim" "$HOME/.config/nvim/init.vim"
   ln -T -sf "$DOTS/nvim/plug.vim" "$HOME/.config/nvim/autoload/plug.vim"
+
+  printf "OK\n"
+}
+
+conf_neomutt() {
+  printf "* neomutt     : "
+
+  mkdir -p "$HOME/.config/neomutt" \
+    "$HOME/.config/neomutt/cache" \
+    "$HOME/.config/neomutt/tmp"
+
+  ln -T -sf "$DOTS/neomutt/inc" "$HOME/.config/neomutt/inc"
+
+  printf "OK\n"
+}
+
+conf_fetchmail() {
+  printf "* fetchmail   : "
+
+  printf "OK\n"
+}
+
+conf_procmail() {
+  printf "* procmail    : "
 
   printf "OK\n"
 }
@@ -199,16 +231,15 @@ conf_kitty() {
   printf "OK\n"
 }
 
-conf_newsbeuter() {
-  printf "* newsbeuter  : "
+conf_newsboat() {
+  printf "* newsboat    : "
 
-  mkdir -p "$HOME/.newsbeuter"
+  mkdir -p "$HOME/.newsboat"
 
-  [ ! -f "$HOME/.newsbeuter/config" ] && \
-    cp "$DOTS/newsbeuter/config.dist" "$HOME/.newsbeuter/config"
+  ln -T -sf "$DOTS/newsboat/config"   "$HOME/.newsboat/config"
 
-  [ ! -f "$HOME/.newsbeuter/urls" ] && \
-    cp "$DOTS/newsbeuter/urls.dist" "$HOME/.newsbeuter/urls"
+  [ ! -f "$HOME/.newsboat/urls" ] && \
+    cp "$DOTS/newsboat/urls.dist" "$HOME/.newsboat/urls"
 
   printf "OK\n"
 }
@@ -257,8 +288,12 @@ conf_nethack() {
 [ -x "$( which bash )"        ] && conf_bash
 [ -x "$( which fish )"        ] && conf_fish
 [ -x "$( which ssh )"         ] && conf_ssh
+[ -x "$( which msmtp )"       ] && conf_msmtp
 [ -x "$( which tmux )"        ] && conf_tmux
-[ -x "$( which nvim )"        ] && conf_nvim
+[ -x "$( which neovim )"      ] && conf_neovim
+[ -x "$( which neomutt )"     ] && conf_neomutt
+[ -x "$( which fetchmail )"   ] && conf_fetchmail
+[ -x "$( which procmail )"    ] && conf_procmail
 [ -x "$( which psql )"        ] && conf_psql
 [ -x "$( which mcabber )"     ] && conf_mcabber
 [ -x "$( which proxychains )" ] && conf_proxychains
@@ -269,7 +304,7 @@ conf_nethack() {
 [ -x "$( which i3 )"          ] && conf_i3wm
 [ -x "$( which dunst )"       ] && conf_dunst
 [ -x "$( which kitty )"       ] && conf_kitty
-[ -x "$( which newsbeuter )"  ] && conf_newsbeuter
+[ -x "$( which newsboat )"    ] && conf_newsboat
 [ -x "$( which perlcritic )"  ] && conf_perlcritic
 [ -x "$( which perltidy )"    ] && conf_perltidy
 [ -x "$( which R )"           ] && conf_R

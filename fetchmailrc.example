@@ -1,0 +1,9 @@
+#set logfile ~/.fetchmail.log
+set invisible
+set no bouncemail
+
+defaults proto imap keep mda "/usr/bin/procmail -d %T" fetchlimit 20
+
+poll imap.test.com port 993
+  username "example@test.com" password "secret" ssl;
+

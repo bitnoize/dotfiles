@@ -1,0 +1,13 @@
+# Maildirs
+
+set mbox_type = "Maildir"
+set folder = "~/mail/example"
+set mbox = "+Inbox"
+set spoolfile = "+Inbox"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+
+mailboxes +Inbox +Service +Drafts +Sent +Spam +Trash
+
+# vim: ft=muttrc

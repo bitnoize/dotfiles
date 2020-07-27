@@ -1,0 +1,11 @@
+# Mutt resource file
+
+source ~/.config/neomutt/inc/base
+source ~/.config/neomutt/inc/colors
+source ~/.config/neomutt/inc/sidebar
+
+source ~/.config/neomutt/accounts/example/ident
+source ~/.config/neomutt/accounts/example/maildir
+source ~/.config/neomutt/accounts/example/smtp
+
+# vim: ft=muttrc

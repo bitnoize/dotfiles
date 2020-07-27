@@ -1,0 +1,8 @@
+# Identify
+
+set realname = "Example Account"
+set from = "example@test.com"
+set sig_dashes = "no"
+set signature = "~/.config/neomutt/accounts/example/signature"
+
+# vim: ft=muttrc

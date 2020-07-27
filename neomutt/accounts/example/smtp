@@ -1,0 +1,3 @@
+set sendmail="/usr/bin/msmtp"
+
+# vim: ft=muttrc

@@ -1,0 +1,10 @@
+PATH=/bin:/usr/bin:/usr/local/bin
+MAILDIR=$HOME/mail
+DEFAULT=$MAILDIR/unsorted
+#LOGFILE=$HOME/.procmail.log
+#VERBOSE=yes
+
+:0:
+* ^To: <example@test.com>$
+example/Inbox/
+

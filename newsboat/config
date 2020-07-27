@@ -1,0 +1,8 @@
+# newsboat config
+
+browser "elinks -remote 'openURL('%u', new-tab)'"
+
+auto-reload yes
+refresh-on-startup yes
+cleanup-on-quit yes
+
