@@ -8,12 +8,13 @@ Plug 'powerman/vim-plugin-viewdoc'
 Plug 'mileszs/ack.vim'
 "Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 filetype plugin indent on
 
 syntax on
-color slate
+color nord
 
 set encoding=utf-8
 set tabstop=2
