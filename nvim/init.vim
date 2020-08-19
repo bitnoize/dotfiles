@@ -37,8 +37,8 @@ set title
 set autoread
 set autowrite
 set showtabline=2
-set termguicolors
-set background=dark
+"set termguicolors
+"set background=dark
 
 nnoremap <leader>s :ToggleWorkspace<CR>
 
