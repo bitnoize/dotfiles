@@ -113,19 +113,45 @@ bindsym $mod+Shift+Q exit
 for_window [class="xli"]        floating enable
 for_window [title="Floating"]   floating enable
 
+set $nord0  #2E3440
+set $nord1  #3B4252
+set $nord2  #434C5E
+set $nord3  #4C566A
+set $nord4  #D8DEE9
+set $nord5  #E5E9F0
+set $nord6  #ECEFF4
+set $nord7  #8FBCBB
+set $nord8  #88C0D0
+set $nord9  #81A1C1
+set $nord10 #5E81AC
+set $nord11 #BF616A
+set $nord12 #D08770
+set $nord13 #EBCB8B
+set $nord14 #A3BE8C
+set $nord15 #B48EAD
+
 # class                 border  backgr. text    indicator
-client.focused          #4c7899 #285577 #ffffff #2e9ef4
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+client.focused          $nord3  $nord9  $nord0  $nord13 $nord10
+client.focused_inactive $nord0  $nord3  $nord6  $nord7  $nord2
+client.unfocused        $nord0  $nord0  $nord3  $nord7  $nord1
+client.urgent           $nord11 $nord11 $nord0  $nord11 $nord11
+client.placeholder      $nord8  $nord0  $nord15 $nord0  $nord0
+client.background       $nord4
 
 bar {
     position top
     workspace_buttons yes
     status_command $HOME/.local/bin/conky-i3bar.sh $HOME/.i3/system.conkyrc
     colors {
-        background  #222222
-        statusline  #808080
+        background  $nord0
+        statusline  $nord8
+
+        # class             border  backgr. text
+        focused_workspace   $nord0  $nord0 $nord14
+        active_workspace    $nord0  $nord0 $nord12
+        inactive_workspace  $nord0  $nord0 $nord3
+        urgent_workspace    $nord11 $nord0 $nord11
+        binding_mode        $nord0  $nord0 $nord14
     }
 }
 
@@ -134,7 +160,7 @@ bar {
     workspace_buttons no
     status_command $HOME/.local/bin/conky-i3bar.sh $HOME/.i3/external.conkyrc
     colors {
-        background  #222222
-        statusline  #808080
+        background  $nord0
+        statusline  $nord8
     }
 }
