@@ -290,7 +290,7 @@ conf_nethack() {
 [ -x "$( which ssh )"         ] && conf_ssh
 [ -x "$( which msmtp )"       ] && conf_msmtp
 [ -x "$( which tmux )"        ] && conf_tmux
-[ -x "$( which neovim )"      ] && conf_neovim
+[ -x "$( which nvim )"        ] && conf_neovim
 [ -x "$( which neomutt )"     ] && conf_neomutt
 [ -x "$( which fetchmail )"   ] && conf_fetchmail
 [ -x "$( which procmail )"    ] && conf_procmail
