@@ -5,5 +5,5 @@ browser "elinks -remote 'openURL('%u', new-tab)'"
 auto-reload yes
 refresh-on-startup yes
 cleanup-on-quit yes
-reload-time 1
+reload-time 5
 

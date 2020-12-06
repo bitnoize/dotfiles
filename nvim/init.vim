@@ -49,3 +49,5 @@ map <C-o> :NERDTreeToggle<CR>
 nnoremap < :tabprevious<CR>
 nnoremap > :tabnext<CR>
 
+let NERDTreeQuitOnOpen=1
+

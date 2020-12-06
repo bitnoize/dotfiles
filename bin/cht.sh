@@ -1,4 +1,4 @@
-]0;firejail /usr/bin/curl -s https://cht.sh/:cht.sh #!/bin/bash
+#!/bin/bash
 # shellcheck disable=SC1117,SC2001
 #
 # [X] open section
