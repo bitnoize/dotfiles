@@ -5,18 +5,22 @@ options(stringsAsFactors = FALSE)
 options(max.print = 100)
 options(scipen = 10)
 options(editor = "vim")
-options(help_type = "html")
 options(menu.graphics = FALSE)
-options(prompt = "> ")
-options(continue = "+ ")
+options(prompt = paste(basename(getwd()), "> "))
+options(continue = "... ")
 options(width = 150)
 options(tab.width = 2)
+options(help_type = "text")
+options(help.ports = c(8000))
 options(HTTPUserAgent = "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko") 
 
-elinks.remote <- function(url)
-  system(sprintf("elinks -remote 'openURL('%s', new-tab)'", url))
+#elinks.remote <- function(url)
+# system(sprintf("elinks -remote 'openURL('%s', new-tab)'", url))
 
-options(browser = elinks.remote)
+#options(browser = elinks.remote)
+
+if(Sys.getenv("TERM") == "xterm-256color")
+  library("colorout")
 
 startup.packages <- c("colorout", "magrittr", "tidyr", "data.table", "dplyr")
 
@@ -26,7 +30,12 @@ startup.load <- function(package)
 
 if (interactive()) {
   invisible(sapply(startup.packages, startup.load))
+  #help.start()
 }
 
 Sys.setenv(R_CONFIG_ACTIVE = "development")
+
+q <- function(save = "no", ...) {
+  quit(save = save, ...)
+}
 
