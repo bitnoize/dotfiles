@@ -23,3 +23,7 @@ if [ -d "$HOME/perl5" ]; then
   export PERL5LIB
 fi
 
+if [ -d "/var/lib/flatpak/exports/bin" ]; then
+  PATH="/var/lib/flatpak/exports/bin:$PATH"
+fi
+

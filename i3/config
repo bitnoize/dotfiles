@@ -63,8 +63,11 @@ floating_modifier $mod
 # Terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Exodus
+bindsym $mod+Shift+m exec flatpak run io.exodus.Exodus
+
 # Firefox
-bindsym $mod+Shift+f exec firefox -P -no-remote
+bindsym $mod+Shift+f exec flatpak run org.mozilla.firefox -P -no-remote
 
 # PulseAudio
 bindsym $mod+Shift+p exec pavucontrol

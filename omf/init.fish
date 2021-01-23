@@ -28,3 +28,7 @@ if test -d "$HOME/perl5"
   set -gx PERL5LIB "$HOME/perl5/lib/perl5:$HOME/perl5/lib/perl5/site_perl"
 end
 
+if test -d "/var/lib/flatpak/exports/bin"
+  set -gx PATH $PATH "/var/lib/flatpak/exports/bin"
+end
+

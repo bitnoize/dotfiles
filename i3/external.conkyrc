@@ -10,7 +10,7 @@ TEXT
 [
   { "full_text" : "BTCUSD ${texeci 60 PAIR="btcusd" ticker.sh }", "color" : "\#FFBF00" },
   { "full_text" : "ETHUSD ${texeci 60 PAIR="ethusd" ticker.sh }", "color" : "\#B3CDE0" },
-  { "full_text" : "LTCUSD ${texeci 60 PAIR="ltcusd" ticker.sh }", "color" : "\#999999" },
+  { "full_text" : "ETHUSD ${texeci 60 PAIR="ethusd" ticker.sh }", "color" : "\#999999" },
 
   { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/connection" | jq -r ".remote_address" }",  "color" : "\#E0E3BC" },
   { "full_text" : "${texeci 60 NO_PROXY="*" curl -s "https://whoer.net/v2/geoip2-city" | jq -r ".city-name" }",  "color" : "\#E0E3BC" },
