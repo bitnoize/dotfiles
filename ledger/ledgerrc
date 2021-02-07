@@ -1,0 +1,5 @@
+--strict
+--pedantic
+--wide
+--pager /usr/bin/less
+--sort date

@@ -268,8 +268,16 @@ conf_R() {
   printf "OK\n"
 }
 
+conf_ledger() {
+  printf "* ledger      : "
+
+  ln -T -sf "$DOTS/ledger/ledgerrc" "$HOME/.ledgerrc"
+
+  printf "OK\n"
+}
+
 conf_wcalc() {
-  printf "* R           : "
+  printf "* wcalc       : "
 
   ln -T -sf "$DOTS/wcalc/wcalcrc" "$HOME/.wcalcrc"
 
@@ -308,6 +316,7 @@ conf_nethack() {
 [ -x "$( which perlcritic )"  ] && conf_perlcritic
 [ -x "$( which perltidy )"    ] && conf_perltidy
 [ -x "$( which R )"           ] && conf_R
+[ -x "$( which ledger )"      ] && conf_ledger
 [ -x "$( which wcalc )"       ] && conf_wcalc
 [ -x "$( which nethack )"     ] && conf_nethack
 
